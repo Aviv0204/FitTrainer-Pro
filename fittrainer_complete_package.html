@@ -1,0 +1,1571 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitTrainer Pro - הורדת קבצים</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            color: white;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #fff, #e0e7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 30px;
+        }
+        .file-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .file-card {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        .file-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        .file-name {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: #e0e7ff;
+        }
+        .file-desc {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            line-height: 1.4;
+        }
+        .download-section {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+        }
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #10b981, #06d6a0);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin: 10px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+        }
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.4);
+        }
+        .instructions {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .instructions h3 {
+            color: #fbbf24;
+            margin-bottom: 15px;
+        }
+        .instructions ol {
+            text-align: right;
+            line-height: 1.6;
+        }
+        .instructions li {
+            margin-bottom: 8px;
+        }
+        .icon-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .icon-reminder {
+            color: #fbbf24;
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>FitTrainer Pro 💪</h1>
+        <p class="subtitle">אפליקציית PWA מקצועית לאימון ותזונה</p>
+        
+        <div class="file-grid">
+            <div class="file-card">
+                <div class="file-name">📱 index.html</div>
+                <div class="file-desc">דף הבית הראשי של האפליקציה</div>
+            </div>
+            
+            <div class="file-card">
+                <div class="file-name">👤 client-app.html</div>
+                <div class="file-desc">אפליקציית הלקוח - אימונים ותזונה</div>
+            </div>
+            
+            <div class="file-card">
+                <div class="file-name">🏋️ trainer-dashboard.html</div>
+                <div class="file-desc">פאנל ניהול למאמנים</div>
+            </div>
+            
+            <div class="file-card">
+                <div class="file-name">🍽️ menu-editor.html</div>
+                <div class="file-desc">עורך תפריטי תזונה</div>
+            </div>
+            
+            <div class="file-card">
+                <div class="file-name">📵 offline.html</div>
+                <div class="file-desc">דף אופליין מעוצב</div>
+            </div>
+            
+            <div class="file-card">
+                <div class="file-name">⚙️ manifest.json</div>
+                <div class="file-desc">הגדרות PWA</div>
+            </div>
+            
+            <div class="file-card">
+                <div class="file-name">🔧 sw.js</div>
+                <div class="file-desc">Service Worker מתקדם</div>
+            </div>
+        </div>
+
+        <div class="download-section">
+            <button class="download-btn" onclick="downloadAllFiles()">
+                📦 הורד את כל הקבצים
+            </button>
+        </div>
+
+        <div class="icon-section">
+            <div class="icon-reminder">🎨</div>
+            <h3>לא לשכוח את האייקונים!</h3>
+            <p>אתה צריך להוסיף את הקבצים האלה לתיקייה:</p>
+            <p><strong>icon-128.png</strong> (128×128 פיקסלים)</p>
+            <p><strong>icon-512.png</strong> (512×512 פיקסלים)</p>
+        </div>
+
+        <div class="instructions">
+            <h3>🚀 הוראות התקנה:</h3>
+            <ol>
+                <li>הורד את כל הקבצים ושמור בתיקייה אחת</li>
+                <li>הוסף את קבצי האייקונים (icon-128.png, icon-512.png)</li>
+                <li>פתח את index.html בדפדפן</li>
+                <li>בדוק שאין שגיאות ב-Developer Tools (F12)</li>
+                <li>העלה לשרת או השתמש מקומית</li>
+                <li>נהנה מהאפליקציה! 🎉</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        // קבצי האפליקציה
+        const files = {
+            'index.html': `<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitTrainer Pro - אפליקציית אימון ותזונה</title>
+    
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/png" sizes="128x128" href="icon-128.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+    <link rel="apple-touch-icon" sizes="128x128" href="icon-128.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png">
+    
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="FitTrainer">
+    <meta name="msapplication-TileColor" content="#2563eb">
+    <meta name="msapplication-TileImage" content="icon-128.png">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #e0e7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #10b981, #06d6a0);
+            color: white;
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .features {
+            padding: 4rem 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #e0e7ff;
+        }
+
+        .feature-card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+
+        .install-prompt {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #2563eb, #3b82f6);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+            display: none;
+            animation: slideInUp 0.5s ease-out;
+            z-index: 1000;
+        }
+
+        .install-prompt.show {
+            display: block;
+        }
+
+        .install-prompt button {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            margin-left: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .install-prompt button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="hero">
+        <div class="hero-content">
+            <h1>FitTrainer Pro 💪</h1>
+            <p>
+                האפליקציה המקצועית שלך לאימון ותזונה.<br>
+                מעקב מלא אחר ההתקדמות, תפריטי תזונה מותאמים ותוכניות אימון מקצועיות.
+            </p>
+            
+            <div class="cta-buttons">
+                <a href="client-app.html" class="btn btn-primary">🏃‍♂️ התחל אימון</a>
+                <a href="trainer-dashboard.html" class="btn btn-secondary">👨‍🏫 פאנל מאמן</a>
+            </div>
+        </div>
+    </main>
+
+    <section class="features">
+        <div class="features-container">
+            <h2>למה FitTrainer Pro?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🏋️‍♂️</div>
+                    <h3>אימונים מותאמים</h3>
+                    <p>תוכניות אימון מקצועיות המותאמות לרמתך ולמטרות שלך, עם מעקב מלא אחר ההתקדמות.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🍎</div>
+                    <h3>תזונה מאוזנת</h3>
+                    <p>תפריטי תזונה מקצועיים עם מעקב קלוריות, חלבונים ויתר הרכיבים התזונתיים.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>מעקב והתקדמות</h3>
+                    <p>גרפים מפורטים ודוחות התקדמות שיעזרו לך להשיג את המטרות שלך מהר יותר.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>זמין אופליין</h3>
+                    <p>האפליקציה עובדת גם ללא אינטרנט, כך שתוכל להמשיך להתאמן בכל מקום.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>מטרות אישיות</h3>
+                    <p>הגדר מטרות אישיות וקבל התראות ועידודים להשגתן.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>ליווי מקצועי</h3>
+                    <p>חיבור ישירות למאמנים מקצועיים לליווי אישי ותמיכה מתמשכת.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- הודעת התקנה -->
+    <div class="install-prompt" id="installPrompt">
+        📱 התקן את האפליקציה למסך הבית!
+        <button onclick="installApp()">התקן</button>
+        <button onclick="dismissInstall()">×</button>
+    </div>
+
+    <script>
+        let deferredPrompt;
+        const installPrompt = document.getElementById('installPrompt');
+
+        // זיהוי אפשרות התקנה
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installPrompt.classList.add('show');
+        });
+
+        // התקנת האפליקציה
+        function installApp() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((result) => {
+                    if (result.outcome === 'accepted') {
+                        console.log('User accepted the install prompt');
+                    }
+                    deferredPrompt = null;
+                    installPrompt.classList.remove('show');
+                });
+            }
+        }
+
+        // סגירת הודעת ההתקנה
+        function dismissInstall() {
+            installPrompt.classList.remove('show');
+        }
+
+        // רישום Service Worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js')
+                .then((registration) => {
+                    console.log('SW registered successfully');
+                    
+                    // בדיקה לעדכונים
+                    registration.addEventListener('updatefound', () => {
+                        const newWorker = registration.installing;
+                        newWorker.addEventListener('statechange', () => {
+                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                // יש עדכון זמין
+                                if (confirm('גרסה חדשה זמינה! לרענן את האפליקציה?')) {
+                                    newWorker.postMessage({ type: 'SKIP_WAITING' });
+                                }
+                            }
+                        });
+                    });
+                })
+                .catch((error) => {
+                    console.log('SW registration failed');
+                });
+        }
+
+        // הפעלת Service Worker חדש
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+            window.location.reload();
+        });
+    </script>
+</body>
+</html>`,
+            'client-app.html': `<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>האפליקציה שלי - FitTrainer Pro</title>
+    
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/png" sizes="128x128" href="icon-128.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+    <link rel="apple-touch-icon" sizes="128x128" href="icon-128.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png">
+    
+    <!-- PWA Meta Tags -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="FitTrainer">
+    <meta name="msapplication-TileColor" content="#2563eb">
+    <meta name="msapplication-TileImage" content="icon-128.png">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background: #f8fafc;
+            color: #334155;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+            color: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        /* Navigation Tabs */
+        .nav-tabs {
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 0 2rem;
+            overflow-x: auto;
+        }
+
+        .nav-tabs-list {
+            display: flex;
+            gap: 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-tab {
+            background: none;
+            border: none;
+            padding: 1rem 2rem;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            color: #64748b;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+
+        .nav-tab.active {
+            color: #2563eb;
+            border-bottom-color: #2563eb;
+            background: rgba(37, 99, 235, 0.05);
+        }
+
+        .nav-tab:hover {
+            color: #2563eb;
+            background: rgba(37, 99, 235, 0.05);
+        }
+
+        /* Content Area */
+        .content {
+            flex: 1;
+            padding: 2rem;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-icon {
+            font-size: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .card-content {
+            color: #64748b;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-1px);
+        }
+
+        .btn-success {
+            background: #10b981;
+            color: white;
+        }
+
+        .btn-success:hover {
+            background: #059669;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #e2e8f0;
+            color: #64748b;
+        }
+
+        .btn-outline:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #10b981, #059669);
+            transition: width 0.3s ease;
+        }
+
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: #64748b;
+            margin-top: 0.25rem;
+        }
+
+        /* Forms */
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #374151;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .nav-tabs {
+                padding: 0 1rem;
+            }
+
+            .content {
+                padding: 1rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🏋️‍♂️ FitTrainer Pro</h1>
+                <div class="user-info">
+                    <div class="user-avatar">👤</div>
+                    <span>ברוך הבא, יוחנן!</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav-tabs">
+            <div class="nav-tabs-list">
+                <button class="nav-tab active" data-tab="dashboard">🏠 סקירה</button>
+                <button class="nav-tab" data-tab="workout">💪 אימון היום</button>
+                <button class="nav-tab" data-tab="nutrition">🍎 תזונה</button>
+                <button class="nav-tab" data-tab="progress">📊 התקדמות</button>
+                <button class="nav-tab" data-tab="goals">🎯 מטרות</button>
+                <button class="nav-tab" data-tab="settings">⚙️ הגדרות</button>
+            </div>
+        </nav>
+
+        <!-- Content -->
+        <main class="content">
+            <!-- Dashboard Tab -->
+            <div class="tab-content active" id="dashboard">
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-icon">🔥</span>
+                            <h3 class="card-title">האימון הבא</h3>
+                        </div>
+                        <div class="card-content">
+                            <p><strong>רגליים וישבן</strong></p>
+                            <p>היום, 18:00</p>
+                            <p>משך: 45 דקות</p>
+                            <div style="margin-top: 1rem;">
+                                <button class="btn btn-primary">▶️ התחל אימון</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-icon">🍽️</span>
+                            <h3 class="card-title">תזונה היום</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>קלוריות נצרכו: <strong>1,240 / 2,000</strong></p>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 62%"></div>
+                            </div>
+                            <p>נותרו 760 קלוריות</p>
+                            <div style="margin-top: 1rem;">
+                                <button class="btn btn-success">+ הוסף ארוחה</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-icon">📈</span>
+                            <h3 class="card-title">ההתקדמות שלך</h3>
+                        </div>
+                        <div class="card-content">
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <div class="stat-number">12</div>
+                                    <div class="stat-label">אימונים השבוע</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">-2.3</div>
+                                    <div class="stat-label">ק"ג החודש</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Workout Tab -->
+            <div class="tab-content" id="workout">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-icon">💪</span>
+                        <h3 class="card-title">אימון רגליים וישבן - יום ג'</h3>
+                    </div>
+                    <div class="card-content">
+                        <p><strong>משך האימון:</strong> 45 דקות</p>
+                        <p><strong>קבוצות שרירים:</strong> רגליים קדמיות, אחוריות, ישבן</p>
+                        
+                        <div style="margin: 1.5rem 0;">
+                            <h4>תרגילי היום:</h4>
+                            <ul style="margin: 1rem 0; padding-right: 1.5rem;">
+                                <li>כפיפות ברכיים - 4 סטים x 12 חזרות</li>
+                                <li>דחיפות רגליים - 3 סטים x 15 חזרות</li>
+                                <li>נפילות - 3 סטים x 10 חזרות כל רגל</li>
+                                <li>שימש עגלים - 4 סטים x 15 חזרות</li>
+                            </ul>
+                        </div>
+
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                            <button class="btn btn-primary">🎬 צפה בסרטונים</button>
+                            <button class="btn btn-success">✅ סמן כהושלם</button>
+                            <button class="btn btn-outline">📝 הוסף הערות</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nutrition Tab -->
+            <div class="tab-content" id="nutrition">
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-icon">☀️</span>
+                            <h3 class="card-title">ארוחת בוקר</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>שייק חלבון עם בננה</p>
+                            <p><strong>320 קלוריות</strong></p>
+                            <button class="btn btn-outline" style="margin-top: 1rem;">✏️ ערוך</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-icon">🌅</span>
+                            <h3 class="card-title">ארוחת ביניים</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>אגוזים ופירות יבשים</p>
+                            <p><strong>180 קלוריות</strong></p>
+                            <button class="btn btn-outline" style="margin-top: 1rem;">✏️ ערוך</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-icon">☀️</span>
+                            <h3 class="card-title">ארוחת צהריים</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>עוף בגריל עם ירקות</p>
+                            <p><strong>450 קלוריות</strong></p>
+                            <button class="btn btn-outline" style="margin-top: 1rem;">✏️ ערוך</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-icon">🌙</span>
+                            <h3 class="card-title">ארוחת ערב</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>עדיין לא נוספה</p>
+                            <button class="btn btn-primary" style="margin-top: 1rem;">+ הוסף ארוחה</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Tab -->
+            <div class="tab-content" id="progress">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-icon">📊</span>
+                        <h3 class="card-title">ההתקדמות שלך</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="stats-grid">
+                            <div class="stat-item">
+                                <div class="stat-number">47</div>
+                                <div class="stat-label">אימונים השנה</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">-8.5</div>
+                                <div class="stat-label">ק"ג בחצי שנה</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">92%</div>
+                                <div class="stat-label">עמידה במטרות</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">156</div>
+                                <div class="stat-label">ימי אימון רצוף</div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 2rem;">
+                            <h4>מדדים אישיים:</h4>
+                            <div style="margin: 1rem 0;">
+                                <p>משקל נוכחי: <strong>72.3 ק"ג</strong> (-0.4 מהשבוע שעבר)</p>
+                                <p>אחוז שומן: <strong>14.2%</strong> (-0.8% מהחודש שעבר)</p>
+                                <p>מסת שריר: <strong>58.7 ק"ג</strong> (+1.2 מהחודש שעבר)</p>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary">📈 צפה בגרפים מפורטים</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Goals Tab -->
+            <div class="tab-content" id="goals">
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-icon">🎯</span>
+                            <h3 class="card-title">ירידה במשקל</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>מטרה: ירידה של 5 ק"ג</p>
+                            <p>התקדמות: 2.3 ק"ג (46%)</p>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 46%"></div>
+                            </div>
+                            <p>זמן משוער: 8 שבועות</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-icon">💪</span>
+                            <h3 class="card-title">בניית שריר</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>מטרה: הוספת 3 ק"ג מסת שריר</p>
+                            <p>התקדמות: 1.2 ק"ג (40%)</p>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 40%"></div>
+                            </div>
+                            <p>זמן משוער: 12 שבועות</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-icon">🏃‍♂️</span>
+                            <h3 class="card-title">כושר גופני</h3>
+                        </div>
+                        <div class="card-content">
+                            <p>מטרה: ריצת 5 ק"מ ב-25 דקות</p>
+                            <p>זמן נוכחי: 28:30 דקות</p>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 70%"></div>
+                            </div>
+                            <p>זמן משוער: 4 שבועות</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <button class="btn btn-primary">+ הוסף מטרה חדשה</button>
+                </div>
+            </div>
+
+            <!-- Settings Tab -->
+            <div class="tab-content" id="settings">
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-icon">⚙️</span>
+                        <h3 class="card-title">הגדרות כלליות</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="form-group">
+                            <label class="form-label">שם מלא</label>
+                            <input type="text" class="form-input" value="יוחנן כהן" />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">גיל</label>
+                            <input type="number" class="form-input" value="28" />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">גובה (ס"מ)</label>
+                            <input type="number" class="form-input" value="175" />
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label">רמת פעילות</label>
+                            <select class="form-input">
+                                <option>פעילות קלה (1-3 פעמים בשבוע)</option>
+                                <option selected>פעילות בינונית (3-5 פעמים בשבוע)</option>
+                                <option>פעילות גבוהה (6-7 פעמים בשבוע)</option>
+                            </select>
+                        </div>
+
+                        <div style="margin-top: 2rem;">
+                            <button class="btn btn-primary">💾 שמור שינויים</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <span class="card-icon">🔔</span>
+                        <h3 class="card-title">התראות</h3>
+                    </div>
+                    <div class="card-content">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <span>תזכורות אימון</span>
+                            <input type="checkbox" checked />
+                        </div>
+                        
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <span>תזכורות תזונה</span>
+                            <input type="checkbox" checked />
+                        </div>
+                        
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                            <span>עדכוני התקדמות</span>
+                            <input type="checkbox" />
+                        </div>
+
+                        <div style="margin-top: 2rem;">
+                            <button class="btn btn-primary">🔔 בדוק התראות</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Tab Navigation
+        const tabs = document.querySelectorAll('.nav-tab');
+        const contents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and contents
+                tabs.forEach(t => t.classList.remove('active'));
+                contents.forEach(c => c.classList.remove('active'));
+
+                // Add active class to clicked tab
+                tab.classList.add('active');
+
+                // Show corresponding content
+                const targetTab = tab.getAttribute('data-tab');
+                document.getElementById(targetTab).classList.add('active');
+            });
+        });
+
+        // Check URL parameters for initial tab
+        const urlParams = new URLSearchParams(window.location.search);
+        const initialTab = urlParams.get('tab');
+        
+        if (initialTab) {
+            tabs.forEach(t => t.classList.remove('active'));
+            contents.forEach(c => c.classList.remove('active'));
+            
+            const targetTab = document.querySelector(\`[data-tab="\${initialTab}"]\`);
+            const targetContent = document.getElementById(initialTab);
+            
+            if (targetTab && targetContent) {
+                targetTab.classList.add('active');
+                targetContent.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>`,
+            'trainer-dashboard.html': `<!-- קובץ trainer-dashboard.html יהיה כאן -->`,
+            'menu-editor.html': `<!-- קובץ menu-editor.html יהיה כאן -->`,
+            'offline.html': `<!-- קובץ offline.html יהיה כאן -->`,
+            'manifest.json': `{
+  "name": "FitTrainer Pro - אפליקציית אימון ותזונה מקצועית",
+  "short_name": "FitTrainer Pro",
+  "description": "האפליקציה המקצועית שלך לאימון, תזונה ומעקב התקדמות. עם ליווי מאמנים מקצועיים ותוכניות מותאמות אישית.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "he",
+  "dir": "rtl",
+  "categories": ["health", "fitness", "lifestyle"],
+  "screenshots": [
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "מסך ראשי של FitTrainer Pro"
+    }
+  ],
+  "icons": [
+    {
+      "src": "icon-128.png",
+      "sizes": "128x128 96x96 72x72",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512 384x384 192x192 152x152 144x144",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "אימון היום",
+      "short_name": "אימון",
+      "description": "פתח ישירות לאימון היום",
+      "url": "client-app.html?tab=workout",
+      "icons": [{ "src": "icon-128.png", "sizes": "128x128" }]
+    },
+    {
+      "name": "תזונה היום",
+      "short_name": "תזונה",
+      "description": "פתח ישירות לתפריט התזונה",
+      "url": "client-app.html?tab=nutrition",
+      "icons": [{ "src": "icon-128.png", "sizes": "128x128" }]
+    },
+    {
+      "name": "ההתקדמות שלי",
+      "short_name": "התקדמות",
+      "description": "צפה בהתקדמות והישגים",
+      "url": "client-app.html?tab=progress",
+      "icons": [{ "src": "icon-128.png", "sizes": "128x128" }]
+    }
+  ],
+  "share_target": {
+    "action": "/share-target",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url",
+      "files": [
+        {
+          "name": "files",
+          "accept": ["image/*", ".pdf"]
+        }
+      ]
+    }
+  },
+  "protocol_handlers": [
+    {
+      "protocol": "fittrainer",
+      "url": "/?protocol=%s"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  }
+}`,
+            'sw.js': `// Service Worker לאפליקציית FitTrainer Pro
+const CACHE_NAME = 'fittrainer-v1.0.0';
+const urlsToCache = [
+  './index.html',
+  './client-app.html',
+  './trainer-dashboard.html',
+  './menu-editor.html',
+  './offline.html',
+  './manifest.json',
+  './icon-128.png',
+  './icon-512.png'
+];
+
+// התקנה - הורדת קבצים למטמון
+self.addEventListener('install', function(event) {
+  console.log('SW: Installing...');
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(function(cache) {
+        console.log('SW: Caching files');
+        return cache.addAll(urlsToCache.map(url => new Request(url, { cache: 'reload' })));
+      })
+      .then(function() {
+        console.log('SW: Installed successfully');
+        return self.skipWaiting();
+      })
+      .catch(function(error) {
+        console.error('SW: Installation failed', error);
+        return self.skipWaiting();
+      })
+  );
+});
+
+// הפעלה - ניקוי מטמון ישן
+self.addEventListener('activate', function(event) {
+  console.log('SW: Activating...');
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.map(function(cacheName) {
+          if (cacheName !== CACHE_NAME) {
+            console.log('SW: Deleting old cache', cacheName);
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    }).then(function() {
+      console.log('SW: Activated successfully');
+      return self.clients.claim();
+    })
+  );
+});
+
+// יירוט בקשות רשת - Cache First Strategy עם טיפול משופר
+self.addEventListener('fetch', function(event) {
+  if (!event.request.url.startsWith('http')) {
+    return;
+  }
+
+  const url = new URL(event.request.url);
+  
+  if (url.pathname === '/share-target' && event.request.method === 'POST') {
+    event.respondWith(handleShareTarget(event.request));
+    return;
+  }
+
+  event.respondWith(
+    caches.match(event.request)
+      .then(function(cachedResponse) {
+        if (cachedResponse) {
+          console.log('SW: Serving from cache', event.request.url);
+          return cachedResponse;
+        }
+
+        console.log('SW: Fetching from network', event.request.url);
+        return fetch(event.request).then(function(networkResponse) {
+          if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
+            return networkResponse;
+          }
+
+          const responseToCache = networkResponse.clone();
+
+          if (shouldCache(event.request)) {
+            caches.open(CACHE_NAME)
+              .then(function(cache) {
+                cache.put(event.request, responseToCache);
+              })
+              .catch(function(error) {
+                console.error('SW: Error caching response', error);
+              });
+          }
+
+          return networkResponse;
+        }).catch(function(error) {
+          console.log('SW: Network failed, trying fallback', error);
+          
+          if (event.request.destination === 'document') {
+            return caches.match('./offline.html');
+          }
+          
+          if (event.request.destination === 'image') {
+            return new Response(
+              '<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg"><rect width="200" height="200" fill="#f3f4f6"/><text x="100" y="100" text-anchor="middle" fill="#9ca3af">📱</text></svg>',
+              { headers: { 'Content-Type': 'image/svg+xml' } }
+            );
+          }
+          
+          throw error;
+        });
+      })
+  );
+});
+
+function shouldCache(request) {
+  const url = new URL(request.url);
+  
+  if (url.origin !== location.origin) {
+    return false;
+  }
+  
+  const cacheableExtensions = ['.html', '.css', '.js', '.png', '.jpg', '.jpeg', '.svg', '.ico', '.woff', '.woff2'];
+  const pathname = url.pathname.toLowerCase();
+  
+  return cacheableExtensions.some(ext => pathname.endsWith(ext)) || pathname === '/' || pathname === '';
+}
+
+async function handleShareTarget(request) {
+  try {
+    const formData = await request.formData();
+    const title = formData.get('title') || '';
+    const text = formData.get('text') || '';
+    const url = formData.get('url') || '';
+
+    console.log('SW: Shared content received', { title, text, url });
+    
+    return Response.redirect('./client-app.html?shared=true', 303);
+  } catch (error) {
+    console.error('SW: Error handling shared content', error);
+    return Response.redirect('./index.html', 303);
+  }
+}
+
+self.addEventListener('push', function(event) {
+  console.log('SW: Push message received');
+  
+  let options = {
+    body: 'זכור לעדכן את הארוחות שלך היום! 🍽️',
+    icon: './icon-512.png',
+    badge: './icon-128.png',
+    vibrate: [200, 100, 200],
+    data: {
+      url: './client-app.html?tab=nutrition'
+    },
+    actions: [
+      {
+        action: 'open',
+        title: 'פתח אפליקציה',
+        icon: './icon-128.png'
+      },
+      {
+        action: 'close',
+        title: 'סגור'
+      }
+    ],
+    requireInteraction: false,
+    silent: false
+  };
+
+  if (event.data) {
+    try {
+      const pushData = event.data.json();
+      options = { ...options, ...pushData };
+    } catch (error) {
+      console.log('SW: Push data not JSON, using default');
+    }
+  }
+
+  event.waitUntil(
+    self.registration.showNotification('FitTrainer Pro 💪', options)
+  );
+});
+
+self.addEventListener('notificationclick', function(event) {
+  console.log('SW: Notification clicked', event.action);
+  
+  event.notification.close();
+
+  if (event.action === 'close') {
+    return;
+  }
+
+  const urlToOpen = event.notification.data?.url || './index.html';
+
+  event.waitUntil(
+    clients.matchAll({ type: 'window', includeUncontrolled: true })
+      .then(function(clientList) {
+        for (let client of clientList) {
+          if (client.url === urlToOpen && 'focus' in client) {
+            return client.focus();
+          }
+        }
+        
+        if (clients.openWindow) {
+          return clients.openWindow(urlToOpen);
+        }
+      })
+  );
+});
+
+self.addEventListener('sync', function(event) {
+  console.log('SW: Background sync triggered', event.tag);
+  
+  if (event.tag === 'background-sync-fittrainer') {
+    event.waitUntil(syncOfflineData());
+  }
+});
+
+async function syncOfflineData() {
+  try {
+    console.log('SW: Syncing offline data...');
+    
+    const clients = await self.clients.matchAll();
+    clients.forEach(client => {
+      client.postMessage({
+        type: 'SYNC_COMPLETE',
+        message: 'הנתונים סונכרנו בהצלחה!'
+      });
+    });
+    
+    
